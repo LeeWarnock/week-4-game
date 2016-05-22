@@ -6,6 +6,125 @@
 	<link rel="stylesheet" type="text/css" href="./assets/css/style.css">
 </head>
 <body>
+<!-- VIDEO BACKGROUND STUFF https://github.com/h4t0n-->
+<div class="parent-wrapper computer full screen">
+
+  <div class="no-video">
+    <p>
+      Resize this div to a min-widht of 992px.
+    </p>
+    <p>
+      Run the Fiddle multiple times to randomly change the video background (2 available).
+    </p>
+    <p>
+      The video background is hidden for devices smaller than 992px (small monitor). You can chenage this behaviour in CSS @media screen selectors and in the javascript isSmallMonitor function.
+    </p>
+  </div>
+
+  <!-- this is the background cover video (absoulte position) -->
+  <div class="video-wrapper">
+
+    <!-- NB the data-poster / data-src / and widht, height attribute were used by the Js Code to randomly select one video from the list and to fit its widht/height to the screen -->
+    <video class="cover-video" autoplay loop muted data-poster="https://s3-us-west-2.amazonaws.com/coverr/poster/River-Side.jpg" width="1920" height="1080">
+      <source data-src="https://s3-us-west-2.amazonaws.com/coverr/mp4/River-Side.mp4" type="video/mp4">
+
+    </video>
+
+
+    <video class="cover-video" autoplay loop muted data-poster="https://s3-us-west-2.amazonaws.com/coverr/poster/Pour.jpg" width="1920" height="1080">
+      <source data-src="https://s3-us-west-2.amazonaws.com/coverr/mp4/Pour.mp4" type="video/mp4">
+
+      <!-- you can add more video here... free cover video availabe at http://www.coverr.co -->
+
+    </video>
+
+  </div>
+
+
+  <div class="white">
+    Text on top of background video.
+  </div>
+</div>
+
 
 </body>
 </html>
+
+<!-- JAVASCRIPT VIDEO STUFF -->
+<script src="https://code.jquery.com/jquery-2.2.4.min.js"   integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44=" crossorigin="anonymous"></script>
+<script type="text/javascript">
+
+//BACKGROUND VIDEO RANDOMIZER STUFF
+$(document).ready(function() {
+
+  // this is used to check if we have at least a small monitor
+  // or we have a tablet / smartphone
+  var isSmallMonitor = window.matchMedia("only screen and (min-width: 992px)");
+
+
+  // the number of available covers
+  // NB: all the video has not the src video attribute
+  // so they are not displayed yet
+  var n_covers = $(".cover-video").length;
+
+
+  // target cover is the video element selected to be loaded
+  var target_cover;
+  // original video dimensions (useful variables)
+  var vid_w_orig;
+  var vid_h_orig;
+
+  // during the screen resize we have to check the screen size
+  // and load / scale the video background 
+  $(window).resize(function() {
+
+    // if we have at least a small monitor we load the background video
+    if (isSmallMonitor.matches) {
+
+      // this is the first time the resize function was called
+      // for a suitable screen size
+      if (!target_cover) {
+        // so let select a random video
+        var random_cover = Math.floor(Math.random() * n_covers);
+        target_cover = $('.cover-video').eq(random_cover);
+        vid_w_orig = parseInt(target_cover.attr('width'));
+        vid_h_orig = parseInt(target_cover.attr('height'));
+
+        // and let set its main attributes
+        // (the browser now load poster/video sources)
+        target_cover.attr("poster", target_cover.data("poster"));
+        target_cover.children("source").each(function() {
+          $(this).attr("src", $(this).data("src"));
+          // reload the media files
+          target_cover.load();
+        });
+      }
+
+      // now we have the target cover selected (randomly)
+      // and we can resize/scale its height/width (accordingly to the screen)
+      resizeToCover();
+
+    }
+
+  });
+
+  function resizeToCover() {
+
+    // use largest scale factor of horizontal/vertical
+    var scale_h = $(window).width() / vid_w_orig;
+    var scale_v = $(window).height() / vid_h_orig;
+    var scale = scale_h > scale_v ? scale_h : scale_v;
+
+    // now scale the video
+    target_cover.width(scale * vid_w_orig);
+    target_cover.height(scale * vid_h_orig);
+
+    // and center it by scrolling the video viewport
+    $('.video-wrapper').scrollLeft((target_cover.width() - $(window).width()) / 2);
+    $('.video-wrapper').scrollTop((target_cover.height() - $(window).height()) / 2);
+  }
+
+  $(window).trigger('resize');
+
+
+});
