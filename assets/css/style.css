@@ -16,14 +16,14 @@ body {
 
 h1 {
 	font-family: 'TNG_Title', Arial, Helvetica, san-serif;
-	font-size: 200px;
+	font-size: 800%;
 	text-align: center;
 	color: white;
 	position: center;
 }
 h2 {
 	font-family: 'TNG_Credits', Arial, Helvetica, san-serif;
-	font-size: 500%;
+	font-size: 300%;
 	text-align: center;
 	color: white;
 	position: center;
