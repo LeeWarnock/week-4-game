@@ -1,4 +1,4 @@
-//VARS - Using a lot of Holly Sprinstein's code
+//VARS - adapting a lot of Holly Sprinsteen's code
 var music = {},
     types = [],
     gameData = {}
