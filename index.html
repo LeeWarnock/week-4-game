@@ -5,7 +5,16 @@
 	<link rel="stylesheet" type="text/css" href="./assets/css/reset.css">
 	<link rel="stylesheet" type="text/css" href="./assets/css/style.css">
 	<script src="https://code.jquery.com/jquery-2.2.4.min.js"   integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44=" crossorigin="anonymous"></script>
+	<!-- random onclick sound
+	<script language="javascript" type="text/javascript">
+		 function playSound(soundfile) {
+		 document.getElementById("PHASER SOUNDS").innerHTML=
+		 "<embed src=\""+soundfile+"\" hidden=\"true\" autostart=\"true\" loop=\"false\" />";
+		 }
+		 -->
+ </script>
 </head>
+<!--<span id="PHASER SOUNDS"></span>-->
 <header>
 	<img class="logo" title="Reset Game" src="http://orig11.deviantart.net/c2be/f/2012/068/9/3/star_trek_comm_badge__tng__logo_by_superman3d-d4s9fvi.png" style="height:80px;float:left;">
 	<h1 style="color:blueviolet;">Choose Your Hero</h1>
@@ -17,7 +26,44 @@
 	<div class="instructions">
 	<h2>Enterprise Crew</h2>
 	</div>
+	<div class="container">
+			<div class="row" id="selectable">
+				<div class="col-xs-3 allCharas" id="borgQueen">
+					<img src="./assets/images/characters/ani_borgQueen.gif">
+				</div>
+				<div class="col-xs-3 allCharas" id="borg">
+					<img src="./assets/images/characters/ani_borg.gif">
+				</div>
+				<div class="col-xs-3 allCharas" id="wesley">
+					<img src="./assets/images/characters/ani_wesley.gif">
+				</div>
+				<div class="col-xs-3 allCharas" id="crusher">
+					<img src="./assets/images/characters/ani_crusher.gif">
+				</div>
+			</div>
 
+			<div class="row" id="selectable">
+				<div class="row" id="selectable">
+					<div class="col-xs-3 allCharas" id="data">
+						<img src="./assets/images/characters/ani_data.gif">
+					</div>
+					<div> class="col-xs-3 allCharas" id="riker>
+						<img src="./assets/images/characters/ani_riker.gif">
+					</div>
+					<div class="col-xs-3 allCharas" id="troi">
+						<img src="./assets/images/characters/ani_troi.gif">
+					</div>
+					<div class="col-xs-3 allCharas" id="crusher">
+						<img src="./assets/images/characters/ani_worf.gif">
+					</div>
+				</div>
+			</div>
+		</div>
+
+
+<!-- this closes the whole container -->
+<script type="text/javascript" src="./assets/game.js">
+</script>
 
 
 
@@ -28,6 +74,7 @@
 
 
 <script type="text/javascript">
+//SUPER_SWEET_BG_RANDOMIZER
 $("body").css("background-image", "url(./assets/images/backgrounds/" + Math.floor(Math.random()*17) + ".jpg)");
 
 </script>

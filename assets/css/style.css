@@ -6,6 +6,7 @@
 	font-family: 'TNG_Title';
 	src: url('../fonts/TNG_Title.woff') format('woff');
 }
+/*
 body {
   background-position: center;
   background-repeat: no-repeat;
@@ -27,4 +28,92 @@ h2 {
 	text-align: center;
 	color: white;
 	position: center;
+}
+*/
+
+
+
+<!--//////////////////////////////////////////////////////
+//////////////////////////////////////////////////////////-->
+
+body {
+  background-position: center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-size: cover;
+  font-family: 'TNG_Credits', Arial, Helvetica, san-serif;
+}
+
+h1 {
+	font-family: 'TNG_Title', Arial, Helvetica, san-serif;
+	font-size: 400%;
+	text-align: center;
+	color: white;
+	position: center;
+}
+h2 {
+	font-family: 'TNG_Credits', Arial, Helvetica, san-serif;
+	font-size: 200%;
+	text-align: center;
+	color: white;
+	position: center;
+}
+
+.health {
+	font-family: 'Courier';
+	color: white;
+	font-size: 16px;
+	background: black;
+	border-radius: 10px;
+}
+
+.allChars {
+	float:left; 
+	width:20%;
+}
+
+img {
+	max-width: 250px;
+    max-height: 250px;
+    border-radius: 50%; 
+}
+.col-xs-3 {
+	width: 25%;
+}
+
+.btn-danger .btn-info {
+	margin: 5px;
+}
+
+
+
+.defeated img {
+	-webkit-filter: grayscale(100%); /* Chrome, Safari, Opera */
+    filter: grayscale(100%);
+}
+
+.allChars img {
+	width: 100%;
+	padding: 2px;
+}
+
+#attack-btn {
+	vertical-align: bottom;
+}
+
+#reset-btn {
+	vertical-align: top;
+}
+
+#logo {
+	margin-top: 60px;
+	padding: 5px;
+	height: auto;
+	width: 100%;
+}
+
+
+#selectable {
+	margin: 5px;
+	margin-top: 75px;
 }
