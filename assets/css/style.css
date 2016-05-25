@@ -35,13 +35,11 @@ h2 {
 
 <!--//////////////////////////////////////////////////////
 //////////////////////////////////////////////////////////-->
-
 body {
   background-position: center;
   background-repeat: no-repeat;
   background-attachment: fixed;
   background-size: cover;
-  font-family: 'TNG_Credits', Arial, Helvetica, san-serif;
 }
 
 h1 {
@@ -67,24 +65,11 @@ h2 {
 	border-radius: 10px;
 }
 
-.allChars {
-	float:left; 
-	width:20%;
-}
 
-img {
-	max-width: 250px;
-    max-height: 250px;
-    border-radius: 50%; 
-}
-.col-xs-3 {
-	width: 25%;
-}
 
 .btn-danger .btn-info {
 	margin: 5px;
 }
-
 
 
 .defeated img {
@@ -93,16 +78,13 @@ img {
 }
 
 .allChars img {
-	width: 100%;
-	padding: 2px;
+	max-width: 250px;
+    max-height: 250px;
+    border-radius: 50%; 
 }
 
 #attack-btn {
 	vertical-align: bottom;
-}
-
-#reset-btn {
-	vertical-align: top;
 }
 
 #logo {
@@ -110,10 +92,21 @@ img {
 	padding: 5px;
 	height: auto;
 	width: 100%;
+	postion: absolute;
+}
+
+#instructions {
+	padding: 5px;
+	margin-left: 15px;
+	height: auto;
+	width: 90%;
 }
 
 
-#selectable {
-	margin: 5px;
-	margin-top: 75px;
-}
+/*
+#outcome {
+	content:url('../images/outcome_placeholder.jpg');
+	padding: 5px;
+	margin-left: 50px;
+	width: 300px; 
+}*/
